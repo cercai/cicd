@@ -1,0 +1,27 @@
+stages:
+  - build
+  - test
+
+build something:
+  stage: build
+  script:
+    - |
+      mkdir build
+      cd build
+      echo "something" > build.txt
+  artifacts:
+    paths:
+      - build/build.txt
+  
+test something:
+  stage: test
+  script:
+    - ls build/build.txt
+      
+      
+
+test something else:
+  stage: test
+  script:
+    - grep "something" build/build.txt
+    
